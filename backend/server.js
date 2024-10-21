@@ -32,14 +32,14 @@ app.post("/api/heritage", async (req, res) => {
   try {
     // Call OpenAI's API using the chat completion endpoint
 const completion = await openai.chat.completions.create({
-  model: "gpt-4", // You can change the model as needed
+  model: "gpt-3.5-turbo", // Use gpt-3.5-turbo
   messages: [
     {
       role: "user",
-      content: `Provide a brief heritage-related description for the surname: ${lastName}. Limit the response to 50 words.`,
+      content: `Provide a brief heritage-related description for the surname: ${lastName}.`,
     },
   ],
-  max_tokens: 50, // Limit the number of tokens (words and punctuation) in the response
+  // No max_tokens parameter, allowing the model to return up to its maximum token limit
 });
 
 
